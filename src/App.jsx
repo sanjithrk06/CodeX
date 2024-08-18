@@ -1,4 +1,5 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import { CompilerProvider } from "./context/Compiler";
 
 // Pages import
 import Home from './pages/Home';
@@ -12,9 +13,9 @@ const router = createBrowserRouter(
 function App() {
 
   return (
-    <>
+    <CompilerProvider>
       <RouterProvider router={router} />
-    </>
+    </CompilerProvider>
   )
 }
 
