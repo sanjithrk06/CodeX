@@ -36,17 +36,17 @@ const Iobox = ({ tabs, name }) => {
           ))}
         </ul>
         <div className="flex flex-nowrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-          <label class="inline-flex items-center cursor-pointer">
+          <label className="inline-flex items-center cursor-pointer">
             <input 
               type="checkbox" 
               value="" 
-              class="sr-only peer"
+              className="sr-only peer"
             />
             <div 
-              class="relative w-10 h-4 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[-2.5px] after:start-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-slate-800"
+              className="relative w-10 h-4 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[-2.5px] after:start-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-slate-800"
             ></div>
             <span 
-              class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               {toggleName[name]}
             </span>
@@ -64,7 +64,7 @@ const Iobox = ({ tabs, name }) => {
                   <textarea 
                     id="message" 
                     rows="10" 
-                    class=" resize-none block p-1 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-none outline-none  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
+                    className=" resize-none block p-1 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-none outline-none  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
                     placeholder="Enter Your Input"
                   ></textarea>
                 </>
@@ -72,11 +72,11 @@ const Iobox = ({ tabs, name }) => {
               : key == 'testCase' ? ( 
                 isTestCase ? (
                 <>
-                  <div class="mb-2 p-2">
-                    <label for="expectedOutput" class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">
+                  <div className="mb-2 p-2">
+                    <label htmlFor="expectedOutput" className="block mb-3 text-sm font-medium text-gray-900 dark:text-white">
                       Expected Output :
-                      <span class="inline-flex items-center mx-3 bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
-                      <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
+                      <span className="inline-flex items-center mx-3 bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                      <span className="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
                       Passed
                     </span>
                     </label>
@@ -84,12 +84,12 @@ const Iobox = ({ tabs, name }) => {
                       type="text" 
                       id="expectedOutput" 
                       placeholder='Enter a Expected Output' 
-                      class="bg-gray-50 outline-none border-2 border-black focus:border-2 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:border-slate-800" 
+                      className="bg-gray-50 outline-none border-2 border-black focus:border-2 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:border-slate-800" 
                     /> */}
                     <textarea 
                     id="message" 
                     rows="4" 
-                    class=" resize-none block p-4 w-full text-sm text-gray-900 bg-gray-900 rounded-lg border-none outline-none  dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
+                    className=" resize-none block p-4 w-full text-sm text-gray-900 bg-gray-900 rounded-lg border-none outline-none  dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
                     placeholder="Enter Your Input"
                   ></textarea>
                   </div>
