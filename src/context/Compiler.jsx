@@ -42,7 +42,25 @@ export const CompilerProvider = ({ children }) => {
     }
 
     return (
-        <Compiler.Provider value={{ testCaseStatus, testCase, code, isTestCase, input, output, updateCode, updateTestCase, updateInput, updateOutput, showTestCase, updateRawOutput, updateTestCaseStatus }}>
+        <Compiler.Provider 
+            value={
+                { 
+                    testCaseStatus, 
+                    testCase, 
+                    code, 
+                    isTestCase, 
+                    input, 
+                    output, 
+                    updateCode, 
+                    updateTestCase, 
+                    updateInput, 
+                    updateOutput, 
+                    showTestCase, 
+                    updateRawOutput, 
+                    updateTestCaseStatus 
+                }
+            }
+        >
             {children}
         </Compiler.Provider>
     )

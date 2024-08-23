@@ -6,7 +6,7 @@
   "proxy": "http://10.70.2.34:4444",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "set \"GENERATE_SOURCEMAP=false\" &&  vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
