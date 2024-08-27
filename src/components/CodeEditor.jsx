@@ -46,7 +46,7 @@ const CodeEditor = ({ setActiveTab }) => {
     };
 
     return (
-        <div className="flex flex-col gap-2 bg-black border-none m-5 h-full">
+        <div className="flex flex-col gap-2 bg-primary border-none mx-5 my-4 h-[85vh]">
             <div className="flex flex-row justify-end">
                 <button 
                     onClick={handleRun} 

@@ -3,10 +3,16 @@ import { CompilerProvider } from "./context/Compiler";
 
 // Pages import
 import Home from './pages/Home';
+import MainLayout from "./layouts/mainLayout";
+import { Compiler } from "./components";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Home />} />
+    <>
+    <Route path="/" element={<MainLayout />}>
+      <Route path="/" element={<Compiler />} />
+    </Route>
+    </>
   )
 )
 

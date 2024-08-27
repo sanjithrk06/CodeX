@@ -32,7 +32,7 @@ const IOBox = ({ tabs, activeTab, setActiveTab }) => {
                         )
                     ))}
                 </ul>
-                <div className="flex flex-nowrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+                {/* <div className="flex flex-nowrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
                     <label className="inline-flex items-center cursor-pointer">
                         <input 
                             type="checkbox" 
@@ -49,7 +49,7 @@ const IOBox = ({ tabs, activeTab, setActiveTab }) => {
                             {toggleName.io}
                         </span>
                     </label>
-                </div>
+                </div> */}
             </div>
             <div>
                 {activeTab === 'input' ? (

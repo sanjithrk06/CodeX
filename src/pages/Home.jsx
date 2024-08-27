@@ -5,7 +5,7 @@ import Compiler from "../components/Compiler";
 
 const Home = () => {
   return (
-    <div className=" bg-black w-[100vw] h-[100vh]">
+    <div className=" bg-black w-full h-full">
       <Compiler />
     </div>
   )
