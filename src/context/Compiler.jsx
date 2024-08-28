@@ -30,6 +30,7 @@ export const CompilerProvider = ({ children }) => {
     }
 
     const updateRawOutput = (code) => {
+        console.log(code);
         setRawOutput(code);
     }
 
@@ -51,6 +52,7 @@ export const CompilerProvider = ({ children }) => {
                     isTestCase, 
                     input, 
                     output, 
+                    rawOutput,
                     updateCode, 
                     updateTestCase, 
                     updateInput, 

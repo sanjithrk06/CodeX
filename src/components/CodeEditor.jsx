@@ -6,39 +6,37 @@ import { useCompiler } from '../context/Compiler';
 const CodeEditor = ({ setActiveTab }) => {
     const [liveCode, setLiveCode] = useState('');
     const [isLoading, setIsLoading] = useState(false); 
-    const { code, updateCode, input, updateOutput } = useCompiler();
-
-    const encode = (codeToEncode) => {
-        const formatted = codeToEncode
-            .split('\n')
-            .filter(line => line.trim() !== '') 
-            .map(line => line.replace(/"/g, '\\"')) 
-            .join('\\n');
-        updateCode(formatted);
-    };
+    const { code, updateCode, input, updateOutput, updateRawOutput, rawOutput } = useCompiler();
 
     const handleChange = (value) => {
-        setLiveCode(value?.trim() || '');
+        updateCode(value?.trim() || '');
+    };    
+
+    const escapeNewlines = (str) => {
+        return str.replace(/\n/g, '\\n');
     };
 
     const handleRun = async (e) => {
         e.preventDefault();
         setIsLoading(true); 
 
-        encode(liveCode);
-
         const formData = {
             uid: "exampleUid",
-            code: liveCode, 
+            code: code, 
             input: input,
             expectedOutput: ""
         };
 
         try {
             const response = await postCode('http://10.70.2.34:4444/api/v1/c/compile', formData);
-            updateOutput(response.output);
+            if (response.errorOutput) updateOutput(response.errorOutput);
+            else {
+                const dcode = escapeNewlines(response.output);
+                updateRawOutput(dcode);
+                updateOutput(response.output);
+            }
         } catch (error) {
-            updateOutput(error.errorOutput);
+            updateOutput(error);
         } finally {
             setActiveTab('output');
             setIsLoading(false); 
@@ -62,7 +60,7 @@ const CodeEditor = ({ setActiveTab }) => {
                     defaultLanguage="c" 
                     defaultValue="// some comment"
                     onChange={handleChange}
-                    value={liveCode} 
+                    value={code} 
                     theme='vs-dark'
                     acceptSuggestionOnCommitCharacter='true'
                     acceptSuggestionOnEnter='on'

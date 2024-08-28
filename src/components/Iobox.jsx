@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useCompiler } from '../context/Compiler';
 
 const IOBox = ({ tabs, activeTab, setActiveTab }) => {
-    const { input, output, updateInput, updateRawOutput } = useCompiler();
+    const { input, output, updateInput, updateRawOutput, rawOutput } = useCompiler();
+    const [showRawOutput, setShowRawOutput] = useState(false);
 
-    const toggleName = {
-        io: 'Raw Output'
+    const handleCheckboxChange = (e) => {
+        setShowRawOutput(e.target.checked);
     };
 
     const handleInput = (e) => {
@@ -32,24 +33,6 @@ const IOBox = ({ tabs, activeTab, setActiveTab }) => {
                         )
                     ))}
                 </ul>
-                {/* <div className="flex flex-nowrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-                    <label className="inline-flex items-center cursor-pointer">
-                        <input 
-                            type="checkbox" 
-                            value="" 
-                            className="sr-only peer"
-                            onChange={updateRawOutput}
-                        />
-                        <div 
-                            className="relative w-10 h-4 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[-2.5px] after:start-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-slate-800"
-                        ></div>
-                        <span 
-                            className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >
-                            {toggleName.io}
-                        </span>
-                    </label>
-                </div> */}
             </div>
             <div>
                 {activeTab === 'input' ? (
@@ -61,9 +44,24 @@ const IOBox = ({ tabs, activeTab, setActiveTab }) => {
                         onChange={handleInput}
                     />
                 ) : (
-                    <div className="resize-none block p-4 w-full text-sm text-gray-900 bg-gray-900 rounded-lg border-none outline-none dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                        {output || "Your output will appear here..."}
+                    <>
+                    <label className="flex justify-end items-center space-x-2 mb-4 cursor-pointer">
+                        <input 
+                            type="checkbox" 
+                            value="" 
+                            className="sr-only peer"
+                            checked={showRawOutput} 
+                            onChange={handleCheckboxChange} 
+                        />
+                        <div 
+                        className="relative w-10 h-4 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[-2.5px] after:start-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-slate-800"
+                        ></div>
+                        <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Raw Output</span>
+                    </label>
+                    <div className="resize-none block p-4 w-full max-h-96 overflow-y-scroll text-sm text-gray-900 bg-gray-900 rounded-lg border-none outline-none dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white custom-scrollbar whitespace-pre-wrap">
+                        {showRawOutput ? rawOutput : (output || "Your output will appear here...")}
                     </div>
+                    </>
                 )}
             </div>
         </div>
