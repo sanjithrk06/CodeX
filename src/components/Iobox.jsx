@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useCompiler } from '../context/Compiler';
 
 const IOBox = ({ tabs, activeTab, setActiveTab }) => {
-    const { input, output, updateInput, updateRawOutput, rawOutput } = useCompiler();
+    const { input, output, updateInput, rawOutput } = useCompiler();
     const [showRawOutput, setShowRawOutput] = useState(false);
 
     const handleCheckboxChange = (e) => {
@@ -54,12 +54,12 @@ const IOBox = ({ tabs, activeTab, setActiveTab }) => {
                             onChange={handleCheckboxChange} 
                         />
                         <div 
-                        className="relative w-10 h-4 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[-2.5px] after:start-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-slate-800"
+                            className="relative w-[1.9rem] h-4 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2.1px] after:left-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-slate-800"
                         ></div>
-                        <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Raw Output</span>
+                        <span className="ms-3 leading-3 text-sm font-medium text-gray-900 dark:text-gray-300">Raw Output</span>
                     </label>
-                    <div className="resize-none block p-4 w-full max-h-96 overflow-y-scroll text-sm text-gray-900 bg-gray-900 rounded-lg border-none outline-none dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white custom-scrollbar whitespace-pre-wrap">
-                        {showRawOutput ? rawOutput : (output || "Your output will appear here...")}
+                    <div className="resize-none block p-4 w-full max-h-[22rem] overflow-y-scroll text-sm text-gray-900 bg-gray-900 rounded-lg border-none outline-none dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white custom-scrollbar whitespace-pre-wrap">
+                        {showRawOutput ? (rawOutput || "Your raw output will appear here...") : (output || "Your output will appear here...")}
                     </div>
                     </>
                 )}

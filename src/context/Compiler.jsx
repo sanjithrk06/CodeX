@@ -5,18 +5,18 @@ const Compiler = createContext();
 
 export const CompilerProvider = ({ children }) => {
 
-    const [ isTestCase, setIsTestCase ] = useState(true);
+    const [ isTestCase, setIsTestCase ] = useState(false);
     const [ code, setCode ] = useState('');
     const [ input, setInput ] = useState('');
     const [ output, setOutput ] = useState('');
     const [ rawOutput, setRawOutput ] = useState('');
     const [ testCase, setTestCase ] = useState('');
-    const [ testCaseStatus, setTestCaseStatus ] = useState();
+    const [ testCaseStatus, setTestCaseStatus ] = useState(null);
 
     const updateTestCase = (state) => {
         setTestCase(state);
     }
-
+    
     const updateCode = (code) => {
         setCode(code);
     }
