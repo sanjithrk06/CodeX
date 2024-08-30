@@ -38,4 +38,25 @@
   .cyberpunk-checkbox:checked::before {
     @apply transform scale-100;
   }
+
+  .code-editor .cm-scroller {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #333;
+}
+
+.code-editor .cm-scroller::-webkit-scrollbar {
+    height: 8px;
+}
+
+.code-editor .cm-scroller::-webkit-scrollbar-track {
+    background: #333;
+}
+
+.code-editor .cm-scroller::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid #333;
+}
+
   

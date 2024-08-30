@@ -1,18 +1,20 @@
+// React Hooks & Context Api Components
 import { createContext, useContext, useState } from "react";
 
-
+// Creating Context
 const Compiler = createContext();
 
 export const CompilerProvider = ({ children }) => {
-
-    const [ isTestCase, setIsTestCase ] = useState(false);
-    const [ code, setCode ] = useState('');
+    // useState
+    const [ isTestCase, setIsTestCase ] = useState(true);
+    const [ code, setCode ] = useState('// Type your code here');
     const [ input, setInput ] = useState('');
     const [ output, setOutput ] = useState('');
     const [ rawOutput, setRawOutput ] = useState('');
     const [ testCase, setTestCase ] = useState('');
     const [ testCaseStatus, setTestCaseStatus ] = useState(null);
 
+    // Setter func
     const updateTestCase = (state) => {
         setTestCase(state);
     }
@@ -30,7 +32,6 @@ export const CompilerProvider = ({ children }) => {
     }
 
     const updateRawOutput = (code) => {
-        console.log(code);
         setRawOutput(code);
     }
 
@@ -40,6 +41,17 @@ export const CompilerProvider = ({ children }) => {
 
     const showTestCase = () => {
         setIsTestCase(!isTestCase);
+    }
+
+    // Reset Controller
+    const resetAll = () => {
+        setIsTestCase(true);
+        setCode('// Type your code here');
+        setInput('');
+        setOutput('');
+        setRawOutput('');
+        setTestCase('');
+        setTestCaseStatus(null);
     }
 
     return (
@@ -59,7 +71,8 @@ export const CompilerProvider = ({ children }) => {
                     updateOutput, 
                     showTestCase, 
                     updateRawOutput, 
-                    updateTestCaseStatus 
+                    updateTestCaseStatus,
+                    resetAll
                 }
             }
         >

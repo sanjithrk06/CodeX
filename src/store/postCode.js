@@ -1,5 +1,6 @@
 import axiosInstance from './axiosInstance';
 
+// Generate Uid Func
 function generateUid() {
     const digits = '0123456789';
     const specialCharacters = '!@#$%^&()';

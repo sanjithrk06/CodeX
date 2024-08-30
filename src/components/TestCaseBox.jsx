@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+// React Hooks & Context Api
+import { useState } from 'react';
 import { useCompiler } from '../context/Compiler';
+
+// PropType to define props type
+import PropTypes from 'prop-types';
 
 const TestCaseBox = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(tabs.find(tab => tab.id === 'testCase').id);
-  const { isTestCase, showTestCase, testCase, updateTestCase, testCaseStatus } = useCompiler();
+  const { 
+    isTestCase, 
+    showTestCase, 
+    testCase, 
+    updateTestCase, 
+    testCaseStatus 
+  } = useCompiler();
 
+  // Toggle TestCase Handler
   const handleCheckboxChange = (e) => {
     showTestCase();
   };
 
+  // Update Expected Output Handler
   const handleTestCase = (e) => {
     updateTestCase(e.target.value);
   };
@@ -22,9 +33,7 @@ const TestCaseBox = ({ tabs }) => {
             tab.id === 'testCase' && (
               <li key={tab.id} className="me-2">
                 <button
-                  className={`inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg ${activeTab === tab.id ? 'text-sky-400 border-sky-400 dark:text-sky-500 dark:border-sky-600' : 'border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group'}`}
-                  onClick={() => setActiveTab(tab.id)}
-                  aria-current={activeTab === tab.id ? 'page' : undefined}
+                  className={`inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg ${isTestCase ? 'text-sky-400 border-sky-400 dark:text-sky-500 dark:border-sky-600' : 'border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group'}`}
                 >
                   {tab.icon}
                   {tab.label}

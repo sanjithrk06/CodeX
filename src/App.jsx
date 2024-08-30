@@ -1,9 +1,10 @@
+// Router Components & context api
 import { createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider } from "react-router-dom";
 import { CompilerProvider } from "./context/Compiler";
 
-// Pages import
+// Pages & Layouts
 import MainLayout from "./layouts/mainLayout";
-import { Compiler } from "./components";
+import Compiler from "./pages/Compiler";
 
 const langLoader = ({ params }) => {
   const { lang } = params;
