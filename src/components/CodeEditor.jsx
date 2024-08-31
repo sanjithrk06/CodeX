@@ -55,14 +55,26 @@ const CodeEditor = ({ setActiveTab }) => {
 
     // Copy to clipboard handler
     const copyToClipboard = () => {
-        navigator.clipboard.writeText(code)
-            .then(() => {
+        const textArea = document.createElement("textarea");
+        textArea.value = code; // Replace 'code' with the text you want to copy
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
                 setCopySuccess(true);
                 setTimeout(() => {
                     setCopySuccess(false);
                 }, 2000);
-            })
+            } else {
+                console.warn("Copy command was unsuccessful");
+            }
+        } catch (err) {
+            console.error("Failed to copy text", err);
+        }
+        document.body.removeChild(textArea);
     };
+    
 
     // On Language change
     useEffect(() => {
