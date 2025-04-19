@@ -1,4 +1,4 @@
-# Codex Online Compiler (Frontend)
+# Codex Online Compiler
 
 An intuitive and user-friendly online compiler tailored for developers working with C and Java. Codex enhances the debugging and testing experience by providing real-time code execution, raw output visibility, and custom test case support—all within a responsive and sleek UI.
 
