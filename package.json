@@ -2,6 +2,7 @@
   "name": "compiler",
   "private": true,
   "version": "0.0.0",
+  "homepage": "/sanjith/codex",
   "type": "module",
   "proxy": "http://10.70.2.34:4444",
   "scripts": {
