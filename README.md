@@ -31,7 +31,7 @@ Developers often face limitations when trying to view raw outputs or test custom
 
 ### 👨‍💻 Tech Stack
 
-- **Frontend Framework**: React.js
+- **Frontend Framework**: React.js, Code Mirror
 - **State Management**: Redux
 - **Styling**: Tailwind CSS
 
